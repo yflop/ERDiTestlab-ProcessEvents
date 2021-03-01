@@ -1640,7 +1640,7 @@
       <xsd:element name="HierarchyScope" type="HierarchyScopeType" minOccurs="0" maxOccurs="1" />
       <xsd:element name="EventTimestamp" type="xsd:dateTime" minOccurs="0" maxOccurs="1" />
       <xsd:element name="EventEffectiveTime" type="xsd:dateTime" minOccurs="0" maxOccurs="1" />
-      <xsd:element name = "AddedWorkScheduleRecord"  minOccurs="1" maxOccurs="unbounded">
+      <xsd:element name = "AddedWorkScheduleRecord"  minOccurs="0" maxOccurs="unbounded">
         <xsd:complexType>
           <xsd:sequence>
             <xsd:element name = "WorkSchedule" type = "WorkScheduleType" />
@@ -1649,7 +1649,7 @@
           <xsd:attribute name="effectiveTimestamp" type="xsd:dateTime" />
         </xsd:complexType>
       </xsd:element>
-      <xsd:element name = "ChangedWorkScheduleRecord"  minOccurs="1" maxOccurs="unbounded">
+      <xsd:element name = "ChangedWorkScheduleRecord"  minOccurs="0" maxOccurs="unbounded">
         <xsd:complexType>
           <xsd:sequence>
             <xsd:element name = "WorkSchedule" type = "WorkScheduleType" />
@@ -1658,7 +1658,7 @@
           <xsd:attribute name="effectiveTimestamp" type="xsd:dateTime" />
         </xsd:complexType>
       </xsd:element>
-      <xsd:element name = "DeletedWorkScheduleRecord"  minOccurs="1" maxOccurs="unbounded">
+      <xsd:element name = "DeletedWorkScheduleRecord"  minOccurs="0" maxOccurs="unbounded">
         <xsd:complexType>
           <xsd:sequence>
             <xsd:element name = "WorkSchedule" type = "WorkScheduleType" />
