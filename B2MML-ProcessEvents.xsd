@@ -1925,10 +1925,10 @@
       <xsd:element name="HierarchyScope" type="HierarchyScopeType" minOccurs="0" maxOccurs="1" />
       <xsd:element name="EventTimestamp" type="xsd:dateTime" minOccurs="0" maxOccurs="1" />
       <xsd:element name="EventEffectiveTime" type="xsd:dateTime" minOccurs="0" maxOccurs="1" />
-      <xsd:element name="AddedJobResponseRecord">
+      <xsd:element name="AddedJobResponseRecord" minOccurs="0" maxOccurs="unbounded">
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element name="JobResponse" type="JobResponseType" />
+            <xsd:element name="JobResponse" type="JobResponseType" minOccurs="1" maxOccurs="unbounded"/>
           </xsd:sequence>
           <xsd:attribute name="recordTimestamp" type="xsd:dateTime" />
           <xsd:attribute name="effectiveTimestamp" type="xsd:dateTime" />
