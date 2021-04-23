@@ -2235,10 +2235,10 @@
           <xsd:attribute name="effectiveTimestamp" type="xsd:dateTime" />
         </xsd:complexType>
       </xsd:element>
-      <xsd:element name = "AddedJobResponseRecord"  maxOccurs="unbounded">
+      <xsd:element name = "AddedJobResponseRecord" maxOccurs="unbounded">
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element name = "JobResponse" type = "JobResponseType" />
+            <xsd:element name = "JobResponse" type = "JobResponseType" maxOccurs="unbounded"/>
           </xsd:sequence>
           <xsd:attribute name="recordTimestamp" type="xsd:dateTime" />
           <xsd:attribute name="effectiveTimestamp" type="xsd:dateTime" />
@@ -2566,10 +2566,10 @@
       <xsd:element name="HierarchyScope" type="HierarchyScopeType" minOccurs="0" maxOccurs="1" />
       <xsd:element name="EventTimestamp" type="xsd:dateTime" minOccurs="0" maxOccurs="1" />
       <xsd:element name="EventEffectiveTime" type="xsd:dateTime" minOccurs="0" maxOccurs="1" />
-      <xsd:element name = "AddedJobResponseRecord"  maxOccurs="unbounded">
+      <xsd:element name = "AddedJobResponseRecord" maxOccurs="unbounded">
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element name = "JobResponse" type = "JobResponseType" />
+            <xsd:element name = "JobResponse" type = "JobResponseType" maxOccurs="unbounded"/>
           </xsd:sequence>
           <xsd:attribute name="recordTimestamp" type="xsd:dateTime" />
           <xsd:attribute name="effectiveTimestamp" type="xsd:dateTime" />
@@ -2745,10 +2745,10 @@
       <xsd:element name="HierarchyScope" type="HierarchyScopeType" minOccurs="0" maxOccurs="1" />
       <xsd:element name="EventTimestamp" type="xsd:dateTime" minOccurs="0" maxOccurs="1" />
       <xsd:element name="EventEffectiveTime" type="xsd:dateTime" minOccurs="0" maxOccurs="1" />
-      <xsd:element name = "AddedJobResponseRecord"  maxOccurs="unbounded">
+      <xsd:element name = "AddedJobResponseRecord" maxOccurs="unbounded">
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element name = "JobResponse" type = "JobResponseType" />
+            <xsd:element name = "JobResponse" type = "JobResponseType" maxOccurs="unbounded"/>
           </xsd:sequence>
           <xsd:attribute name="recordTimestamp" type="xsd:dateTime" />
           <xsd:attribute name="effectiveTimestamp" type="xsd:dateTime" />
