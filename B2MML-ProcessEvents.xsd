@@ -223,7 +223,7 @@
           <xsd:attribute name="effectiveTimestamp" type="xsd:dateTime" />
         </xsd:complexType>
       </xsd:element>
-      <xsd:element name="ChangedAddedMaterialLotRecord" minOccurs="0" maxOccurs="unbounded">
+      <xsd:element name="ChangedMaterialLotRecord" minOccurs="0" maxOccurs="unbounded">
         <xsd:complexType>
           <xsd:sequence>
             <xsd:element name="MaterialLot" type="MaterialLotType" />
@@ -321,7 +321,7 @@
           <xsd:attribute name="effectiveTimestamp" type="xsd:dateTime" />
         </xsd:complexType>
       </xsd:element>
-      <xsd:element name="ChangedAddedMaterialLotRecord" minOccurs="0" maxOccurs="unbounded">
+      <xsd:element name="ChangedMaterialLotRecord" minOccurs="0" maxOccurs="unbounded">
         <xsd:complexType>
           <xsd:sequence>
             <xsd:element name="MaterialLot" type="MaterialLotType" />
@@ -330,7 +330,7 @@
           <xsd:attribute name="effectiveTimestamp" type="xsd:dateTime" />
         </xsd:complexType>
       </xsd:element>
-      <xsd:element name="DeletedAddedMaterialLotRecord" minOccurs="0" maxOccurs="unbounded">
+      <xsd:element name="DeletedMaterialLotRecord" minOccurs="0" maxOccurs="unbounded">
         <xsd:complexType>
           <xsd:sequence>
             <xsd:element name="MaterialLot" type="MaterialLotType" />
