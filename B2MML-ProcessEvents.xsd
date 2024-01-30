@@ -32,7 +32,7 @@
   <xsd:include schemaLocation="B2MML-ErrorMessage.xsd"/>
   <xsd:include schemaLocation="B2MML-OperationsTest.xsd"/>
   <xsd:include schemaLocation="B2MML-TestSpecification.xsd" />
-  
+  <xsd:include schemaLocation="B2MML-WorkCalendar.xsd" />
 
 
   <xsd:import namespace="http://www.mesa.org/xml/B2MML-AllExtensions"
@@ -44,7 +44,7 @@
       This file simply includes the B2MML schemas into a single
       definition that will allow the inclusion of these schemas into the
       global set of Process Centric Notifys as the Process Centric Notify
-      Proposal 0.1.
+      Proposal 1.0.
 
       Copyright 2012 MESA International
       All Rights Reserved. http://www.mesa.org
@@ -116,6 +116,9 @@
 
   <!-- Global Elements -->
 
+  <xsd:element name="NotifyValueChainModelDesignDefinedEvent" type="etp:NotifyValueChainModelDesignDefinedEventType" />
+  <xsd:element name="NotifyWorkCalendarDefinedEvent" type="etp:NotifyWorkCalendarDefinedEventType" />
+
   <xsd:element name="NotifyOperationsScheduledEvent" type="etp:NotifyOperationsScheduledEventType" />
   <xsd:element name="NotifyOperationsRescheduledEvent" type="etp:NotifyOperationsRescheduledEventType" />
   <xsd:element name="NotifyOperationsDefinedEvent" type="etp:NotifyOperationsDefinedEventType" />
@@ -164,6 +167,561 @@
 
 
   <!-- Simple & Complex Types	-->
+
+  <xsd:complexType name="NotifyValueChainModelDesignDefinedEvent">
+    <xsd:sequence>
+      <xsd:element name="ApplicationArea" type="TransApplicationAreaType" />
+      <xsd:element name="DataArea">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="Notify" type="etp:TransNotifyType" />
+            <xsd:element name="ValueChainModelDesignDefinedEvent" type="ValueChainModelDesignDefinedEventType" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="ValueChainModelDesignDefinedEventType">
+    <xsd:sequence>
+      <xsd:element name="ID" type="IdentifierType" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="Description" type="DescriptionType" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="Priority" type="PriorityType" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="HierarchyScope" type="HierarchyScopeType" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="EventTimestamp" type="xsd:dateTime" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="EventEffectiveTime" type="xsd:dateTime" minOccurs="0" maxOccurs="1" />
+<!-- ResourceDefined components -->
+      <xsd:element name="AddedPersonnelClassRecord" minOccurs="0" maxOccurs="unbounded">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="PersonnelClass" type="PersonnelClassType" />
+          </xsd:sequence>
+          <xsd:attribute name="recordTimestamp" type="xsd:dateTime" />
+          <xsd:attribute name="effectiveTimestamp" type="xsd:dateTime" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ChangedPersonnelClassRecord" minOccurs="0" maxOccurs="unbounded">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="PersonnelClass" type="PersonnelClassType" />
+          </xsd:sequence>
+          <xsd:attribute name="recordTimestamp" type="xsd:dateTime" />
+          <xsd:attribute name="effectiveTimestamp" type="xsd:dateTime" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="DeletedPersonnelClassRecord" minOccurs="0" maxOccurs="unbounded">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="PersonnelClass" type="PersonnelClassType" />
+          </xsd:sequence>
+          <xsd:attribute name="recordTimestamp" type="xsd:dateTime" />
+          <xsd:attribute name="effectiveTimestamp" type="xsd:dateTime" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="AddedEquipmentClassRecord" minOccurs="0" maxOccurs="unbounded">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="EquipmentClass" type="EquipmentClassType" />
+          </xsd:sequence>
+          <xsd:attribute name="recordTimestamp" type="xsd:dateTime" />
+          <xsd:attribute name="effectiveTimestamp" type="xsd:dateTime" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ChangedEquipmentClassRecord" minOccurs="0" maxOccurs="unbounded">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="EquipmentClass" type="EquipmentClassType" />
+          </xsd:sequence>
+          <xsd:attribute name="recordTimestamp" type="xsd:dateTime" />
+          <xsd:attribute name="effectiveTimestamp" type="xsd:dateTime" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="DeletedEquipmentClassRecord" minOccurs="0" maxOccurs="unbounded">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="EquipmentClass" type="EquipmentClassType" />
+          </xsd:sequence>
+          <xsd:attribute name="recordTimestamp" type="xsd:dateTime" />
+          <xsd:attribute name="effectiveTimestamp" type="xsd:dateTime" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="AddedEquipmentRecord" minOccurs="0" maxOccurs="unbounded">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="Equipment" type="EquipmentType" />
+          </xsd:sequence>
+          <xsd:attribute name="recordTimestamp" type="xsd:dateTime" />
+          <xsd:attribute name="effectiveTimestamp" type="xsd:dateTime" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ChangedEquipmentRecord" minOccurs="0" maxOccurs="unbounded">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="Equipment" type="EquipmentType" />
+          </xsd:sequence>
+          <xsd:attribute name="recordTimestamp" type="xsd:dateTime" />
+          <xsd:attribute name="effectiveTimestamp" type="xsd:dateTime" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="DeletedEquipmentRecord" minOccurs="0" maxOccurs="unbounded">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="Equipment" type="EquipmentType" />
+          </xsd:sequence>
+          <xsd:attribute name="recordTimestamp" type="xsd:dateTime" />
+          <xsd:attribute name="effectiveTimestamp" type="xsd:dateTime" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="AddedPhysicalAssetClassRecord" minOccurs="0" maxOccurs="unbounded">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="PhysicalAssetClass" type="PhysicalAssetClassType" />
+          </xsd:sequence>
+          <xsd:attribute name="recordTimestamp" type="xsd:dateTime" />
+          <xsd:attribute name="effectiveTimestamp" type="xsd:dateTime" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ChangedPhysicalAssetClassRecord" minOccurs="0" maxOccurs="unbounded">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="PhysicalClassAsset" type="PhysicalAssetClassType" />
+          </xsd:sequence>
+          <xsd:attribute name="recordTimestamp" type="xsd:dateTime" />
+          <xsd:attribute name="effectiveTimestamp" type="xsd:dateTime" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="DeletedPhysicalAssetClassRecord" minOccurs="0" maxOccurs="unbounded">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="PhysicalAssetClass" type="PhysicalAssetClassType" />
+          </xsd:sequence>
+          <xsd:attribute name="recordTimestamp" type="xsd:dateTime" />
+          <xsd:attribute name="effectiveTimestamp" type="xsd:dateTime" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="AddedMaterialClassRecord" minOccurs="0" maxOccurs="unbounded">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="MaterialClass" type="MaterialClassType" />
+          </xsd:sequence>
+          <xsd:attribute name="recordTimestamp" type="xsd:dateTime" />
+          <xsd:attribute name="effectiveTimestamp" type="xsd:dateTime" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ChangedMaterialClassRecord" minOccurs="0" maxOccurs="unbounded">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="MaterialClass" type="MaterialClassType" />
+          </xsd:sequence>
+          <xsd:attribute name="recordTimestamp" type="xsd:dateTime" />
+          <xsd:attribute name="effectiveTimestamp" type="xsd:dateTime" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="DeletedMaterialClassRecord" minOccurs="0" maxOccurs="unbounded">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="MaterialClass" type="MaterialClassType" />
+          </xsd:sequence>
+          <xsd:attribute name="recordTimestamp" type="xsd:dateTime" />
+          <xsd:attribute name="effectiveTimestamp" type="xsd:dateTime" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="AddedMaterialDefinitionRecord" minOccurs="0" maxOccurs="unbounded">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="MaterialDefinition" type="MaterialDefinitionType" />
+          </xsd:sequence>
+          <xsd:attribute name="recordTimestamp" type="xsd:dateTime" />
+          <xsd:attribute name="effectiveTimestamp" type="xsd:dateTime" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ChangedMaterialDefinitionRecord" minOccurs="0" maxOccurs="unbounded">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="MaterialDefinition" type="MaterialDefinitionType" />
+          </xsd:sequence>
+          <xsd:attribute name="recordTimestamp" type="xsd:dateTime" />
+          <xsd:attribute name="effectiveTimestamp" type="xsd:dateTime" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="DeletedMaterialDefinitionRecord" minOccurs="0" maxOccurs="unbounded">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="MaterialDefinition" type="MaterialDefinitionType" />
+          </xsd:sequence>
+          <xsd:attribute name="recordTimestamp" type="xsd:dateTime" />
+          <xsd:attribute name="effectiveTimestamp" type="xsd:dateTime" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="AddedHierarchyScopeRecord" minOccurs="0" maxOccurs="unbounded">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="HierarchyScope" type="HierarchyScopeType" />
+          </xsd:sequence>
+          <xsd:attribute name="recordTimestamp" type="xsd:dateTime" />
+          <xsd:attribute name="effectiveTimestamp" type="xsd:dateTime" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ChangedHierarchyScopeRecord" minOccurs="0" maxOccurs="unbounded">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="HierarchyScope" type="HierarchyScopeType" />
+          </xsd:sequence>
+          <xsd:attribute name="recordTimestamp" type="xsd:dateTime" />
+          <xsd:attribute name="effectiveTimestamp" type="xsd:dateTime" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="DeletedHierarchyScopeRecord" minOccurs="0" maxOccurs="unbounded">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="HierarchyScope" type="HierarchyScopeType" />
+          </xsd:sequence>
+          <xsd:attribute name="recordTimestamp" type="xsd:dateTime" />
+          <xsd:attribute name="effectiveTimestamp" type="xsd:dateTime" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name = "AddedResourceRelationshipNetworkRecord"  minOccurs="0" maxOccurs="unbounded">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name = "ResourceRelationshipNetwork" type = "ResourceRelationshipNetworkType" />
+          </xsd:sequence>
+          <xsd:attribute name="recordTimestamp" type="xsd:dateTime" />
+          <xsd:attribute name="effectiveTimestamp" type="xsd:dateTime" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name = "ChangedResourceRelationshipNetworkRecord"  minOccurs="0" maxOccurs="unbounded">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name = "ResourceRelationshipNetwork" type = "ResourceRelationshipNetworkType" />
+          </xsd:sequence>
+          <xsd:attribute name="recordTimestamp" type="xsd:dateTime" />
+          <xsd:attribute name="effectiveTimestamp" type="xsd:dateTime" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name = "DeletedResourceRelationshipNetworkRecord"  minOccurs="0" maxOccurs="unbounded">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name = "ResourceRelationshipNetwork" type = "ResourceRelationshipNetworkType" />
+          </xsd:sequence>
+          <xsd:attribute name="recordTimestamp" type="xsd:dateTime" />
+          <xsd:attribute name="effectiveTimestamp" type="xsd:dateTime" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="AddedEquipmentAssetMappingRecord" minOccurs="0" maxOccurs="unbounded">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="EquipmentAssetMapping" type="EquipmentAssetMappingType" />
+          </xsd:sequence>
+          <xsd:attribute name="recordTimestamp" type="xsd:dateTime" />
+          <xsd:attribute name="effectiveTimestamp" type="xsd:dateTime" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ChangedEquipmentAssetMappingRecord" minOccurs="0" maxOccurs="unbounded">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="EquipmentAssetMapping" type="EquipmentAssetMappingType" />
+          </xsd:sequence>
+          <xsd:attribute name="recordTimestamp" type="xsd:dateTime" />
+          <xsd:attribute name="effectiveTimestamp" type="xsd:dateTime" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="DeletedEquipmentAssetMappingRecord" minOccurs="0" maxOccurs="unbounded">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="EquipmentAssetMapping" type="EquipmentAssetMappingType" />
+          </xsd:sequence>
+          <xsd:attribute name="recordTimestamp" type="xsd:dateTime" />
+          <xsd:attribute name="effectiveTimestamp" type="xsd:dateTime" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="AddedOperationalLocationClassRecord" minOccurs="0" maxOccurs="unbounded">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="OperationalLocationClass" type="OperationalLocationClassType" />
+          </xsd:sequence>
+          <xsd:attribute name="recordTimestamp" type="xsd:dateTime" />
+          <xsd:attribute name="effectiveTimestamp" type="xsd:dateTime" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ChangedOperationalLocationClassRecord" minOccurs="0" maxOccurs="unbounded">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="OperationalLocationClass" type="OperationalLocationClassType" />
+          </xsd:sequence>
+          <xsd:attribute name="recordTimestamp" type="xsd:dateTime" />
+          <xsd:attribute name="effectiveTimestamp" type="xsd:dateTime" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="DeletedOperationalLocationClassRecord" minOccurs="0" maxOccurs="unbounded">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="OperationalLocationClass" type="OperationalLocationClassType" />
+          </xsd:sequence>
+          <xsd:attribute name="recordTimestamp" type="xsd:dateTime" />
+          <xsd:attribute name="effectiveTimestamp" type="xsd:dateTime" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="AddedOperationalLocationRecord" minOccurs="0" maxOccurs="unbounded">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="OperationalLocation" type="OperationalLocationType" />
+          </xsd:sequence>
+          <xsd:attribute name="recordTimestamp" type="xsd:dateTime" />
+          <xsd:attribute name="effectiveTimestamp" type="xsd:dateTime" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ChangedOperationalLocationRecord" minOccurs="0" maxOccurs="unbounded">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="OperationalLocation" type="OperationalLocationType" />
+          </xsd:sequence>
+          <xsd:attribute name="recordTimestamp" type="xsd:dateTime" />
+          <xsd:attribute name="effectiveTimestamp" type="xsd:dateTime" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="DeletedOperationalLocationRecord" minOccurs="0" maxOccurs="unbounded">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="OperationalLocation" type="OperationalLocationType" />
+          </xsd:sequence>
+          <xsd:attribute name="recordTimestamp" type="xsd:dateTime" />
+          <xsd:attribute name="effectiveTimestamp" type="xsd:dateTime" />
+        </xsd:complexType>
+      </xsd:element>
+
+<!-- WorkDefined components -->
+      <xsd:element name = "AddedWorkMasterRecord"  minOccurs="0" maxOccurs="unbounded">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name = "WorkMaster" type = "WorkMasterType" />
+          </xsd:sequence>
+          <xsd:attribute name="recordTimestamp" type="xsd:dateTime" />
+          <xsd:attribute name="effectiveTimestamp" type="xsd:dateTime" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name = "ChangedWorkMasterRecord"  minOccurs="0" maxOccurs="unbounded">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name = "WorkMaster" type = "WorkMasterType" />
+          </xsd:sequence>
+          <xsd:attribute name="recordTimestamp" type="xsd:dateTime" />
+          <xsd:attribute name="effectiveTimestamp" type="xsd:dateTime" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name = "DeletedWorkMasterRecord"  minOccurs="0" maxOccurs="unbounded">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name = "WorkMaster" type = "WorkMasterType" />
+          </xsd:sequence>
+          <xsd:attribute name="recordTimestamp" type="xsd:dateTime" />
+          <xsd:attribute name="effectiveTimestamp" type="xsd:dateTime" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name = "AddedWorkflowSpecificationRecord"  minOccurs="0" maxOccurs="unbounded">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name = "WorkflowSpecification" type = "WorkflowSpecificationType" />
+          </xsd:sequence>
+          <xsd:attribute name="recordTimestamp" type="xsd:dateTime" />
+          <xsd:attribute name="effectiveTimestamp" type="xsd:dateTime" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name = "ChangedWorkflowSpecificationRecord"  minOccurs="0" maxOccurs="unbounded">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name = "WorkflowSpecification" type = "WorkflowSpecificationType" />
+          </xsd:sequence>
+          <xsd:attribute name="recordTimestamp" type="xsd:dateTime" />
+          <xsd:attribute name="effectiveTimestamp" type="xsd:dateTime" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name = "DeletedWorkflowSpecificationRecord"  minOccurs="0" maxOccurs="unbounded">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name = "WorkflowSpecification" type = "WorkflowSpecificationType" />
+          </xsd:sequence>
+          <xsd:attribute name="recordTimestamp" type="xsd:dateTime" />
+          <xsd:attribute name="effectiveTimestamp" type="xsd:dateTime" />
+        </xsd:complexType>
+      </xsd:element>
+
+<!-- these components are duplicated from ResourceDefined components so will be omitted
+      <xsd:element name = "AddedResourceRelationshipNetworkRecord"  minOccurs="0" maxOccurs="unbounded">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name = "ResourceRelationshipNetwork" type = "ResourceRelationshipNetworkType" />
+          </xsd:sequence>
+          <xsd:attribute name="recordTimestamp" type="xsd:dateTime" />
+          <xsd:attribute name="effectiveTimestamp" type="xsd:dateTime" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name = "ChangedResourceRelationshipNetworkRecord"  minOccurs="0" maxOccurs="unbounded">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name = "ResourceRelationshipNetwork" type = "ResourceRelationshipNetworkType" />
+          </xsd:sequence>
+          <xsd:attribute name="recordTimestamp" type="xsd:dateTime" />
+          <xsd:attribute name="effectiveTimestamp" type="xsd:dateTime" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name = "DeletedResourceRelationshipNetworkRecord"  minOccurs="0" maxOccurs="unbounded">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name = "ResourceRelationshipNetwork" type = "ResourceRelationshipNetworkType" />
+          </xsd:sequence>
+          <xsd:attribute name="recordTimestamp" type="xsd:dateTime" />
+          <xsd:attribute name="effectiveTimestamp" type="xsd:dateTime" />
+        </xsd:complexType>
+      </xsd:element>
+-->
+
+<!--  Operations Defined Components -->
+      <xsd:element name="AddedOperationsDefinitionRecord" minOccurs="0" maxOccurs="unbounded">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="OperationsDefinition" type="OperationsDefinitionType" />
+          </xsd:sequence>
+          <xsd:attribute name="recordTimestamp" type="xsd:dateTime" />
+          <xsd:attribute name="effectiveTimestamp" type="xsd:dateTime" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ChangedOperationsDefinitionRecord" minOccurs="0" maxOccurs="unbounded">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="OperationsDefinition" type="OperationsDefinitionType" />
+          </xsd:sequence>
+          <xsd:attribute name="recordTimestamp" type="xsd:dateTime" />
+          <xsd:attribute name="effectiveTimestamp" type="xsd:dateTime" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="DeletedOperationsDefinitionRecord" minOccurs="0" maxOccurs="unbounded">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="OperationsDefinition" type="OperationsDefinitionType" />
+          </xsd:sequence>
+          <xsd:attribute name="recordTimestamp" type="xsd:dateTime" />
+          <xsd:attribute name="effectiveTimestamp" type="xsd:dateTime" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="AddedProcessSegmentRecord" minOccurs="0" maxOccurs="unbounded">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="ProcessSegment" type="ProcessSegmentType" />
+          </xsd:sequence>
+          <xsd:attribute name="recordTimestamp" type="xsd:dateTime" />
+          <xsd:attribute name="effectiveTimestamp" type="xsd:dateTime" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ChangedProcessSegmentRecord" minOccurs="0" maxOccurs="unbounded">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="ProcessSegment" type="ProcessSegmentType" />
+          </xsd:sequence>
+          <xsd:attribute name="recordTimestamp" type="xsd:dateTime" />
+          <xsd:attribute name="effectiveTimestamp" type="xsd:dateTime" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="DeletedProcessSegmentRecord" minOccurs="0" maxOccurs="unbounded">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="ProcessSegment" type="ProcessSegmentType" />
+          </xsd:sequence>
+          <xsd:attribute name="recordTimestamp" type="xsd:dateTime" />
+          <xsd:attribute name="effectiveTimestamp" type="xsd:dateTime" />
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+	  <xsd:attribute name="recordTimestamp" type="xsd:dateTime" />
+	  <xsd:attribute name="effectiveTimestamp" type="xsd:dateTime" />
+  </xsd:complexType>  
+
+
+
+
+  <xsd:complexType name="NotifyWorkCalendarDefinedEventType">
+    <xsd:sequence>
+      <xsd:element name="ApplicationArea" type="TransApplicationAreaType" />
+      <xsd:element name="DataArea">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="Notify" type="etp:TransNotifyType" />
+            <xsd:element name="WorkCalendarDefinedEvent" type="WorkCalendarDefinedEventType" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="WorkCalendarDefinedEventType">
+    <xsd:sequence>
+      <xsd:element name="ID" type="IdentifierType" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="Description" type="DescriptionType" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="Priority" type="PriorityType" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="HierarchyScope" type="HierarchyScopeType" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="EventTimestamp" type="xsd:dateTime" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="EventEffectiveTime" type="xsd:dateTime" minOccurs="0" maxOccurs="1" />
+<!-- WorkCalendarDefinition components -->
+      <xsd:element name="AddedWorkCalendarDefinitionRecord" minOccurs="0" maxOccurs="unbounded">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="WorkCalendarDefinition" type="WorkCalendarDefinitionType" />
+          </xsd:sequence>
+          <xsd:attribute name="recordTimestamp" type="xsd:dateTime" />
+          <xsd:attribute name="effectiveTimestamp" type="xsd:dateTime" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ChangedWorkCalendarDefinitionRecord" minOccurs="0" maxOccurs="unbounded">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="WorkCalendarDefinition" type="WorkCalendarDefinitionType" />
+          </xsd:sequence>
+          <xsd:attribute name="recordTimestamp" type="xsd:dateTime" />
+          <xsd:attribute name="effectiveTimestamp" type="xsd:dateTime" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="DeletedWorkCalendarDefinitionRecord" minOccurs="0" maxOccurs="unbounded">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="WorkCalendarDefinition" type="WorkCalendarDefinitionType" />
+          </xsd:sequence>
+          <xsd:attribute name="recordTimestamp" type="xsd:dateTime" />
+          <xsd:attribute name="effectiveTimestamp" type="xsd:dateTime" />
+        </xsd:complexType>
+      </xsd:element>
+
+      <xsd:element name="AddedWorkCalendarRecord" minOccurs="0" maxOccurs="unbounded">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="WorkCalendar" type="WorkCalendarType" />
+          </xsd:sequence>
+          <xsd:attribute name="recordTimestamp" type="xsd:dateTime" />
+          <xsd:attribute name="effectiveTimestamp" type="xsd:dateTime" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ChangedWorkCalendarRecord" minOccurs="0" maxOccurs="unbounded">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="WorkCalendar" type="WorkCalendarType" />
+          </xsd:sequence>
+          <xsd:attribute name="recordTimestamp" type="xsd:dateTime" />
+          <xsd:attribute name="effectiveTimestamp" type="xsd:dateTime" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="DeletedWorkCalendarRecord" minOccurs="0" maxOccurs="unbounded">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="WorkCalendar" type="WorkCalendarType" />
+          </xsd:sequence>
+          <xsd:attribute name="recordTimestamp" type="xsd:dateTime" />
+          <xsd:attribute name="effectiveTimestamp" type="xsd:dateTime" />
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+    <xsd:attribute name="recordTimestamp" type="xsd:dateTime" />
+    <xsd:attribute name="effectiveTimestamp" type="xsd:dateTime" />
+  </xsd:complexType>
+
+
 
   <xsd:complexType name="NotifyOperationsScheduledEventType">
     <xsd:sequence>
