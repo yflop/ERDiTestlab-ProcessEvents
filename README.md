@@ -16,4 +16,4 @@
 ## The specification
 
 This repository provides access to the ProcessEvents.xsd we are using and working on with a focus on mining interoperability. This repository is not the official repository for any other standards organisation.
-The PorcessEvents.xsd should be used with the MESA B2MML schema's for implementing ISA95 integration projects.
+The ProcessEvents.xsd should be used with the MESA B2MML schema's for implementing ISA95 integration projects.
